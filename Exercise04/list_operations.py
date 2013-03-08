@@ -118,17 +118,20 @@ def custom_len(input_list):
 	for i in input_list:
 		count = count + i
 		return count
+	
 
 # For the next four functions, get clever using slice operations described in the 
 #first half
 def custom_append(input_list, value):
 	"""custom_append(input_list, value) imitates input_list.append(value)"""
+	list_length = custom_len(input_list) + 1
+	input_list[list_length:list_length] = [value]
+	return input_list
 	
-
 def custom_extend(input_list, values):
 	"""custom_extend(input_list, values) imitates input_list.extend(values)"""
-	pass
-
+	return input_list + [value]
+	
 def custom_insert(input_list, index, value):
 	"""custom_insert(input_list, index, value) imitates
 	input_list.insert(index, value)
