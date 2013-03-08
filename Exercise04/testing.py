@@ -1,10 +1,9 @@
 
-def replace_head(input_list):
-	"""Remove the third and seventh elements of the input list."""
-	input_list[2] = []
-	input_list[7] = []
-	print input_list
+def custom_len(input_list,value):
+	"""custom_append(input_list, value) imitates input_list.append(value)"""
+	input_list[]
+
 	
 list = [0,1,2,3,4,5,6,7,8,9,10]
-print replace_head(list)
+print custom_len(list, [131,2,1])
 

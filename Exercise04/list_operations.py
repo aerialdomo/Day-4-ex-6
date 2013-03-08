@@ -72,24 +72,30 @@ def replace_third_and_last(input_list):
 	"""Replace the third and last elements of the input list with the value 37."""
 	input_list[2] = 37
 	input_list[-1] = 37
+
 	
 	
 def replace_middle(input_list):
 	"""Replace all elements of the input list with the the values 42 and 37, in
 	that order, except for the first two and last two elements.
 	"""
-	input_list[2:-2] = [37,42]
+	# input_list[2:-2] = [37,42]
+	pass
+	# NOT PASSING
+	
 
 def delete_third_and_seventh(input_list):
 	"""Remove the third and seventh elements of the input list."""
-	input_list[3, ]
-	
+	del input_list[3] 
+	del input_list[6]
+	# pass
+	#NOT PASSING
 
 def delete_middle(input_list):
 	"""Remove all elements from the input list except for the first two and the
 	last two.
 	"""
-	pass
+	del input_list[2:-2]
 
 """
 Part 2: Derived operations on lists
@@ -109,12 +115,15 @@ the test_list_operations.py file for concrete examples of expected behavior.
 
 def custom_len(input_list):
 	"""custom_len(input_list) imitates len(input_list)"""
-	pass
+	for i in input_list:
+		count = count + i
+		return count
 
-# For the next four functions, get clever using slice operations described in the first half
+# For the next four functions, get clever using slice operations described in the 
+#first half
 def custom_append(input_list, value):
 	"""custom_append(input_list, value) imitates input_list.append(value)"""
-	pass
+	
 
 def custom_extend(input_list, values):
 	"""custom_extend(input_list, values) imitates input_list.extend(values)"""
