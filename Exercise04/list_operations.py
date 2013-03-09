@@ -66,30 +66,22 @@ def inner_four_end(input_list):
 def replace_head(input_list):
 	"""Replace the head of the input list with the value 42."""
 	input_list[0] = 42
-	
-	
+
 def replace_third_and_last(input_list):
 	"""Replace the third and last elements of the input list with the value 37."""
 	input_list[2] = 37
 	input_list[-1] = 37
 
-	
-	
 def replace_middle(input_list):
 	"""Replace all elements of the input list with the the values 42 and 37, in
 	that order, except for the first two and last two elements.
 	"""
-	# input_list[2:-2] = [37,42]
-	pass
-	# NOT PASSING
-	
+	input_list[2:-2] = [42, 37]
 
 def delete_third_and_seventh(input_list):
 	"""Remove the third and seventh elements of the input list."""
 	del input_list[3] 
-	del input_list[6]
-	# pass
-	#NOT PASSING
+	del input_list[7]
 
 def delete_middle(input_list):
 	"""Remove all elements from the input list except for the first two and the
@@ -115,55 +107,95 @@ the test_list_operations.py file for concrete examples of expected behavior.
 
 def custom_len(input_list):
 	"""custom_len(input_list) imitates len(input_list)"""
+	count = 0
 	for i in input_list:
-		count = count + i
-		return count
+		count += 1
+	return count
 	
 
 # For the next four functions, get clever using slice operations described in the 
 #first half
 def custom_append(input_list, value):
 	"""custom_append(input_list, value) imitates input_list.append(value)"""
-	list_length = custom_len(input_list) + 1
+	list_length = custom_len(input_list)
 	input_list[list_length:list_length] = [value]
 	return input_list
 	
 def custom_extend(input_list, values):
 	"""custom_extend(input_list, values) imitates input_list.extend(values)"""
-	return input_list + [value]
+	# return input_list + [values]
+	#WHYYYYYYYYYYYY
+	list_length = custom_len(input_list)
+	input_list[list_length:list_length] = values
+	return input_list
 	
 def custom_insert(input_list, index, value):
 	"""custom_insert(input_list, index, value) imitates
 	input_list.insert(index, value)
 	"""
-	pass
+	list_length = custom_len(input_list)
+	input_list[index:index] = [value]
+	return input_list
 
 def custom_remove(input_list, value):
 	"""custom_remove(input_list, value) imitates input_list.remove(value)"""
-	pass
+	list_size = custom_len(input_list)
+	for i in range(0, list_size): 
+		if input_list[i] == value:	
+			del input_list[i]
+			break
 
 def custom_pop(input_list):
 	"""custom_pop(input_list) imitates input_list.pop()"""
-	pass
+	return b
+	b = input_list[-1]
+	return b
 
 def custom_index(input_list, value):
 	"""custom_index(input_list, value) imitates input_list.index(value)"""
-	pass
+	thing = custom_len(input_list)
+	for i in range(thing):
+		if input_list[i] == value:
+			return i
 
 def custom_count(input_list, value):
 	"""custom_count(input_list, value) imitates input_list.count(value)"""
-	pass
+	count = 0
+	thing = custom_len(input_list)
+	for i in range(thing):
+		if input_list[i] == value:
+			count += 1
+	return count
 
 def custom_reverse(input_list):
 	"""custom_reverse(input_list) imitates input_list.reverse()"""
-	pass
+	
+	return input_list[::-1]
+	# WHY?
+
 
 def custom_contains(input_list, value):
 	"""custom_contains(input_list, value) imitates (value in input_list)"""
-	pass
+	# contains returns True or False
+	#  does this list contains this value?
+	for i in input_list:
+		if input_list[i] == value:	
+			return True
 
 def custom_equality(some_list, another_list):
 	"""custom_equality(some_list, another_list) imitates
 	(some_list == another_list)
 	"""
-	pass
+	if custom_len(some_list) != custom_len(another_list):
+		return False	
+	else:	
+		for i in some_list:      
+		# print some_list[i]                   
+		# for j in another_list:	
+			if some_list[i] == another_list[i]:	
+				# print "some list" + str(some_list[i])
+				# print "another: " + str(another_list[i])
+				return True
+			else:
+				return False	
+		
