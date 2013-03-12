@@ -4,7 +4,7 @@ string_text = f.read().lower()
 #read coverts txt file to string all lower case
 f.close()
 
-split_text = string_text.split(' ')
+split_text = string_text.split()
 #splits string into list
 
 word_dict = {}
@@ -18,16 +18,15 @@ for index in range(len(split_text)):
 	 		
 for word in split_text:
 #loop through split_text
-	if word in word_dict:
-	# what does this if statement do? Asks, is this word already in the dict?
-		word_dict[word]	+= 1
-		#counting the words in split test 
-	else:
-	# when do you get into this else section? if unique word, add key to dict
-		word_dict[word] = 1 
-		#if there is only 1 word add it to dict
-
-
+	word_dict[word] = word_dict.get(word, 0) + 1
+	# if word in word_dict:
+	# # what does this if statement do? Asks, is this word already in the dict?
+	# 	word_dict[word]	+= 1
+	# 	#counting the words in split test 
+	# else:
+	# # when do you get into this else section? if unique word, add key to dict
+	# 	word_dict[word] = 1 
+	# 	#if there is only 1 word add it to dict
 
 
 sort_num = []
